@@ -22,7 +22,7 @@ describe Sinatra::AssetPipeline::Task do
 
     it "precompiles assets" do
       json_manifest["files"].each_key do |file|
-        expect(File.exists?("public/assets/#{file}")).to be true
+        expect(File.exist?("public/assets/#{file}")).to be true
         expect(File.read("public/assets/#{file}")).to eq js_content  if file.end_with? '.js'
         expect(File.read("public/assets/#{file}")).to eq css_content if file.end_with? '.css'
       end
